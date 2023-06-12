@@ -109,6 +109,7 @@ export const MENUITEMS = [
     children: [
       { path: "/products/all", title: "Products", type: "link" },
       { path: "/products/add-product", title: "Add Product", type: "link" },
+      { path: "/products/reviews", title: "Reviews", type: "link" },
     ],
   },
   {
@@ -163,6 +164,17 @@ export const MENUITEMS = [
     children: [
       { path: "/store/list-store", title: "Store List", type: "link" },
       { path: "/store/create-store", title: "Create Store", type: "link" },
+    ],
+  },
+  {
+    title: "Category",
+    icon: UserPlus,
+    type: "sub",
+    active: false,
+    children: [
+      { path: "/category/all", title: "Categories", type: "link" },
+      { path: "/category/add", title: "Create Category", type: "link" },
+      { path: "/category/request", title: "Request Categories", type: "link" },
     ],
   },
   {
