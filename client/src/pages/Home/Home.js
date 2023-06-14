@@ -5,38 +5,22 @@ import ProductRequirements from "../../components/HomeComponents/ProductRequirem
 import Product from "../Product/Product";
 import VerifiedStores from "../../components/HomeComponents/VerifiedStores/VerifiedStores";
 import Banner from "../../components/HomeComponents/Banner/Banner";
-import { Typography } from "@material-tailwind/react";
+import LatestProducts from "../../components/HomeComponents/LatestProducts/LatestProducts";
+import TopRankingProducts from "../../components/HomeComponents/TopRankingProducts/TopRankingProducts";
+import PopularProducts from "../../components/HomeComponents/PopularProducts/PopularProducts";
+import About from "../About/About";
 
 const Home = () => {
   return (
-    <section className="">
+    <section className="bg-white">
       <div className="max-w-primary mx-auto px-4 pt-4">
-        <div className="flex items-center h-10 w-full">
-          <div className="w-fit h-full px-2 bg-primary cursor-pointer flex justify-center items-center text-white">
-            <span>Announcement</span>
-          </div>
-          <marquee
-            className="bg-blue-gray-50 h-full w-full flex items-center px-2"
-            behavior="smooth"
-            direction="left"
-          >
-            <Typography>
-              Welcome to our eCommerce website! Discover a world of incredible
-              deals and discounts on a wide range of products that will make
-              your shopping experience unforgettable. Browse through our
-              extensive collection of electronics, fashion, home essentials, and
-              more. We have everything you need to meet your lifestyle demands.
-              With our user-friendly interface and secure payment options, you
-              can shop with confidence from the comfort of your home. Your
-              satisfaction is our top priority. Take advantage of our exclusive
-              promotions, flash sales, and seasonal offers to save big on your
-              favorite products. Shop now and enjoy the thrill of great savings!
-            </Typography>
-          </marquee>
-        </div>
         <Banner />
-        <Product />
+        <LatestProducts />
+        {/* <Product /> */}
         <VerifiedStores />
+        <TopRankingProducts />
+        <About />
+        <PopularProducts />
         <ProductRequirements />
       </div>
 

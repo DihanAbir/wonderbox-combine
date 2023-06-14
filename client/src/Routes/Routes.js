@@ -19,6 +19,9 @@ import StoreProfile from "../pages/StoreProfile/StoreProfile";
 import HistoryPage from "../pages/DashboardPages/HistoryPage";
 import PriveteRoute from "./PriveteRoute";
 import ProductList from "../pages/ProductList/ProductList";
+import Stores from "../pages/Stores/Stores";
+import About from "../pages/About/About";
+import Invoice from "../pages/DashboardPages/Invoice";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +30,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home></Home> },
       { path: "/home", element: <Home></Home> },
+      { path: "/about-us", element: <About></About> },
       { path: "/products", element: <Product></Product> },
       {
         path: "/product-list/:parent",
@@ -59,6 +63,10 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/stores",
+        element: <Stores></Stores>,
+      },
+      {
         path: "/stores/:username",
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/store/getInfo/${params?.username}`),
@@ -83,6 +91,12 @@ const router = createBrowserRouter([
       { path: "/dashboard", element: <MyAccount /> },
       { path: "/dashboard/my-account", element: <MyAccount /> },
       { path: "/dashboard/orders", element: <MyOrders /> },
+      {
+        path: "/dashboard/orders/:cardId",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/card/${params?.cardId}`),
+        element: <Invoice />,
+      },
       { path: "/dashboard/recipient", element: <RecipientRegister /> },
       { path: "/dashboard/shopping-address", element: <MyShoppingAddress /> },
       { path: "/dashboard/seller-orders", element: <SellerOrders /> },

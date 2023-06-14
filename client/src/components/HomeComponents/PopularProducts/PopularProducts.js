@@ -1,33 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
 import ProductCard from "../../cards/ProductCard";
+import Slider from "react-slick";
 
-const LatestProducts = () => {
+const PopularProducts = () => {
   const [products, setProducts] = useState([]);
   const sliderRef = useRef(null);
   const [slidesToShow, setSlidesToShow] = useState(4);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/product/show/all`)
+    fetch(`http://localhost:5000/api/product/popular/products/all`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
   }, []);
 
-  //   const next = () => {
-  //     sliderRef.current.slickNext();
-  //   };
-
-  //   const previous = () => {
-  //     sliderRef.current.slickPrev();
-  //   };
-
   const settings = {
     dots: true,
     infinite: true,
     slidesToShow: slidesToShow,
-    // slidesToScroll: 1,
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
@@ -50,26 +41,18 @@ const LatestProducts = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
   return (
-    <div className="mt-8 relative group">
-      <div className="text-center max-w-[800px] mx-auto mb-2">
-        <h1 className="font-bold text-2xl text-gray-800">Recently Released</h1>
-        <p className="text-gray-600">
-          Discover our newest arrivals! Explore the latest products that have
-          just hit the shelves. From fashion to tech, our recently released
-          collection showcases the freshest and most innovative items. Stay
-          ahead of the game and be the first to get your hands on these exciting
-          new additions.
-        </p>
-      </div>
+    <div className="mt-16 relative group">
+      <h1 className="font-bold text-2xl text-gray-800 mb-2">
+        Popular Products
+      </h1>
       <Slider ref={sliderRef} {...settings}>
         {products.map((product, i) => (
-          <ProductCard key={i} product={product} />
+          <ProductCard key={i} product={product} status="" />
         ))}
       </Slider>
     </div>
   );
 };
 
-export default LatestProducts;
+export default PopularProducts;

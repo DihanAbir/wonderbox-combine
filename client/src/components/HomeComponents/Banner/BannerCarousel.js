@@ -32,6 +32,11 @@ export default class BannerCarousel extends Component {
         <Slider ref={(c) => (this.slider = c)} {...settings}>
           <img
             className="w-full h-[368px] object-cover"
+            src="https://www.wonderbox.fr/wondermedias/sys_master/cmsmedias/h69/hd8/FR_FR_WBX_HP_SLIDERACTU_090623_FDP_LIV-Desktop.jpg"
+            alt=""
+          />
+          <img
+            className="w-full h-[368px] object-cover"
             src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             alt=""
           />

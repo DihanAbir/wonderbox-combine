@@ -13,7 +13,7 @@ import {
   setWishlistProducts,
 } from "../../Slices/controllerSlice";
 import WishlistDrawer from "../drawers/WishlistDrawer";
-import { Badge, IconButton } from "@material-tailwind/react";
+import { Badge, Button, IconButton } from "@material-tailwind/react";
 import AddCartDrawer from "../drawers/AddCartDrawer";
 
 const Navber = () => {
@@ -108,6 +108,19 @@ const Navber = () => {
             FAQ
           </Link>
         </div>
+        <Link to="/dashboard/recipient" className="hidden lg:block">
+          <Button className="bg-pink-500 text-white rounded py-2 px-2 flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z" />{" "}
+            </svg>
+            I have a Wonderbox
+          </Button>
+        </Link>
 
         {user?._id ? (
           <>
@@ -150,9 +163,9 @@ const Navber = () => {
               onClick={() => dispatch(setOpenProfileDrawer(true))}
               className="flex items-center gap-2"
             >
-              <h1 className="font-bold text-blue-900 hidden sm:block">
+              {/* <h1 className="font-bold text-blue-900 hidden sm:block">
                 {user?.name?.slice(0, 12)}
-              </h1>
+              </h1> */}
               <div className="relative flex items-center justify-center w-10 h-10 bg-blue-600 rounded-full text-white font-semibold">
                 {user?.image ? (
                   <img
@@ -252,6 +265,7 @@ const Navber = () => {
             Contact
           </Link>
         </div>
+
         <div className="lg:hidden w-full flex items-center px-2 text-left hover:bg-[#0029FF]">
           <Link
             to="/faq"
@@ -260,6 +274,21 @@ const Navber = () => {
             FAQ
           </Link>
         </div>
+
+        <Link to="/dashboard/recipient" className="lg:hidden">
+          <Button className="bg-pink-500 text-white rounded py-2 px-2 flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 16 16"
+            >
+              <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 14.5V7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A2.968 2.968 0 0 1 3 2.506V2.5zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43a.522.522 0 0 0 .023.07zM9 3h2.932a.56.56 0 0 0 .023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0V3zM1 4v2h6V4H1zm8 0v2h6V4H9zm5 3H9v8h4.5a.5.5 0 0 0 .5-.5V7zm-7 8V7H2v7.5a.5.5 0 0 0 .5.5H7z" />{" "}
+            </svg>
+            I have a Wonderbox
+          </Button>
+        </Link>
+
         {!user?._id && (
           <div className="lg:hidden flex items-center gap-6 mt-4">
             <Link

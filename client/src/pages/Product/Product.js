@@ -12,7 +12,7 @@ const Product = () => {
       });
   }, []);
   return (
-    <div className="mt-16">
+    <div className="mt-16 max-w-primary mx-auto px-4">
       <Typography className="text-xl font-bold mb-2">
         Latest Products
       </Typography>

@@ -2,15 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Rating, Typography } from "@material-tailwind/react";
 import ProductImageCorousel from "./ProductImageCarousel";
+import ranking from "../../assets/icons/ranking.png";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, status }) => {
   return (
     <div
-      className="flex flex-col justify-between border border-gray-600/20 bg-white max-h-[500px] overflow-hidden"
+      className="flex flex-col justify-between border border-gray-600/20 bg-white h-[506px] mx-2 hover:shadow-2xl"
       id="box-shadow"
     >
       <div>
-        <div className="relative w-full h-24 md:h-48 object-cover overflow-hidden bg-slate-200 bg-gray-100 group">
+        <div className="relative w-full h-[280px] object-cover overflow-hidden group">
+          {status && status === "ranking" && (
+            <img className="absolute top-3 right-3 w-10" src={ranking} alt="" />
+          )}
           <ProductImageCorousel images={product?.images} />
         </div>
         <Link
