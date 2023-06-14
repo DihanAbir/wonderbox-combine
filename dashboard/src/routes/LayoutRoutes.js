@@ -37,6 +37,11 @@ import AddProduct from "../components/products/AddProduct";
 import Products from "../components/products/Products";
 import Cards from "../components/Cards/Cards";
 import AddCard from "../components/Cards/AddCard";
+import AllCategory from "../components/category/AllCategory";
+import AddCategory from "../components/category/AddCategory";
+import CategoryRequest from "../components/category/CategoryRequest";
+import ProductReview from "../components/products/ProductReview";
+import History from "../components/History/History";
 
 const LayoutRoutes = () => {
   const [user, setUser] = useState("");
@@ -56,6 +61,10 @@ const LayoutRoutes = () => {
             element={<Dashboard />}
           />
 
+          <Route
+            path={`${process.env.PUBLIC_URL}/products/all`}
+            element={<Products />}
+          />
 
           <Route
             path={`${process.env.PUBLIC_URL}/products/add-product`}
@@ -63,10 +72,9 @@ const LayoutRoutes = () => {
           />
 
           <Route
-            path={`${process.env.PUBLIC_URL}/products/all`}
-            element={<Products />}
+            path={`${process.env.PUBLIC_URL}/products/:id/reviews`}
+            element={<ProductReview />}
           />
-
 
           {/* // -----------cards----------- */}
           <Route
@@ -79,57 +87,6 @@ const LayoutRoutes = () => {
             element={<AddCard />}
           />
 
-
-          {/* {user && user.role === "admin" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/products/physical/category`}
-              element={<Category />}
-            />
-          )}
-          {user && user.role === "admin" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/products/physical/sub-category`}
-              element={<Subcategory />}
-            />
-          )}
-          {user && user.role === "admin" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/products/physical/product-list`}
-              element={<Productlist />}
-            />
-          )}
-          <Route
-            path={`${process.env.PUBLIC_URL}/products/physical/product-detail/:id`}
-            element={<Productdetail />}
-          />
-
-          {user && user.role === "seller" || user.role === "admin" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/products/physical/add-product`}
-              element={<Addproduct />}
-            />
-          )}
-          {user && user.role === "admin" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/products/digital/digital-category`}
-              element={<Digitalcategory />}
-            />
-          )}
-          {user && user.role === "seller" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/products/digital/digital-sub-category`}
-              element={<Digitalsubcategory />}
-            />
-          )}
-          <Route
-            path={`${process.env.PUBLIC_URL}/products/digital/digital-product-list`}
-            element={<Digitalprolist />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/products/digital/digital-add-product`}
-            element={<Digitaladdpro />}
-          /> */}
-
           <Route
             path={`${process.env.PUBLIC_URL}/sales/orders`}
             element={<Orders />}
@@ -139,35 +96,6 @@ const LayoutRoutes = () => {
             element={<Transactionsales />}
           />
 
-          {/* <Route
-            path={`${process.env.PUBLIC_URL}/coupons/list-coupons`}
-            element={<ListCoupons />}
-          /> */}
-          {/* <Route
-            path={`${process.env.PUBLIC_URL}/coupons/create-coupons`}
-            element={<Createcoupons />}
-          /> */}
-          {/* {user && user.role === "admin" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/pages/list-page`}
-              element={<ListPages />}
-            />
-          )} */}
-          {/* <Route
-            path={`${process.env.PUBLIC_URL}/pages/create-page`}
-            element={<Createpage />}
-          /> */}
-
-          {/* <Route path={`${process.env.PUBLIC_URL}/media`} element={<Media />} /> */}
-
-          {/* <Route
-            path={`${process.env.PUBLIC_URL}/menus/list-menu`}
-            element={<Listmenu />}
-          /> */}
-          {/* <Route
-            path={`${process.env.PUBLIC_URL}/menus/create-menu`}
-            element={<Createmenu />}
-          /> */}
           {user && user.role === "admin" && (
             <Route
               path={`${process.env.PUBLIC_URL}/users/list-user`}
@@ -175,14 +103,13 @@ const LayoutRoutes = () => {
             />
           )}
 
-
-
-          {user && user.role === "admin" || user.role === "seller" && (
-            <Route
-              path={`${process.env.PUBLIC_URL}/store/list-store`}
-              element={<List_store />}
-            />
-          )}
+          {(user && user.role === "admin") ||
+            (user.role === "seller" && (
+              <Route
+                path={`${process.env.PUBLIC_URL}/store/list-store`}
+                element={<List_store />}
+              />
+            ))}
 
           {user && user.role === "seller" && (
             <Route
@@ -191,7 +118,29 @@ const LayoutRoutes = () => {
             />
           )}
 
+          <Route
+            path={`${process.env.PUBLIC_URL}/history`}
+            element={<History />}
+          />
 
+          {/* {user && user.role === "admin" && ( */}
+          <Route
+            path={`${process.env.PUBLIC_URL}/category/all`}
+            element={<AllCategory />}
+          />
+          {/* )} */}
+          {/* {user && user.role === "admin" && ( */}
+          <Route
+            path={`${process.env.PUBLIC_URL}/category/add`}
+            element={<AddCategory />}
+          />
+          {/* )} */}
+          {/* {user && user.role === "admin" && ( */}
+          <Route
+            path={`${process.env.PUBLIC_URL}/category/request`}
+            element={<CategoryRequest />}
+          />
+          {/* )} */}
 
           {user && user.role === "admin" && (
             <Route
@@ -199,33 +148,6 @@ const LayoutRoutes = () => {
               element={<Createuser />}
             />
           )}
-          {/* 
-          <Route
-            path={`${process.env.PUBLIC_URL}/vendors/list_vendors`}
-            element={<Listvendors />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/vendors/create-vendors`}
-            element={<Createvendors />}
-          />
-
-          <Route
-            path={`${process.env.PUBLIC_URL}/localization/transactions`}
-            element={<Translations />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/localization/currency-rates`}
-            element={<Rates />}
-          />
-          <Route
-            path={`${process.env.PUBLIC_URL}/localization/taxes`}
-            element={<Taxes />}
-          />
-
-          <Route
-            path={`${process.env.PUBLIC_URL}/reports/report`}
-            element={<Reports />}
-          /> */}
 
           <Route
             path={`${process.env.PUBLIC_URL}/settings/profile`}
