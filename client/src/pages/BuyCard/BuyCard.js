@@ -17,19 +17,22 @@ const BuyCard = () => {
   const product = useLoaderData();
   const navigate = useNavigate();
 
-  const privateKey = uuidv4();
-
   const handleBuy = () => {
     const newCard = {
-      title: product?.title,
       productId: product?._id,
       userId: user?._id,
       storeId: product?.storeId,
-      features: product?.features,
       amount: product?.discount,
-      priveteKey: privateKey,
       type: product?.type,
+      price: product?.price,
     };
+
+    if (product?.type === "Wallet") {
+      newCard["amount"] = product.amount;
+    } else {
+      newCard["features"] = product.features;
+    }
+
     if (newCard) {
       fetch(`http://localhost:5000/api/card/`, {
         method: "POST",
@@ -40,7 +43,6 @@ const BuyCard = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data) {
             navigate("/dashboard/orders");
           }

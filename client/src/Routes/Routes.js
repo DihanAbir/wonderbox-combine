@@ -22,6 +22,8 @@ import ProductList from "../pages/ProductList/ProductList";
 import Stores from "../pages/Stores/Stores";
 import About from "../pages/About/About";
 import Invoice from "../pages/DashboardPages/Invoice";
+import DepositForm from "../pages/DashboardPages/DepositForm";
+import Deposits from "../pages/DashboardPages/Deposits";
 
 const router = createBrowserRouter([
   {
@@ -97,6 +99,8 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/api/card/${params?.cardId}`),
         element: <Invoice />,
       },
+      { path: "/dashboard/deposit-wallet", element: <DepositForm /> },
+      { path: "/dashboard/deposits", element: <Deposits /> },
       { path: "/dashboard/recipient", element: <RecipientRegister /> },
       { path: "/dashboard/shopping-address", element: <MyShoppingAddress /> },
       { path: "/dashboard/seller-orders", element: <SellerOrders /> },

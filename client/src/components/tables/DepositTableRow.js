@@ -10,44 +10,49 @@ import {
   DialogBody,
   DialogFooter,
 } from "@material-tailwind/react";
+import moment from "moment";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function HistoryTableRow({ data }) {
+export default function DepositTableRow({ data }) {
   const [open, setOpen] = useState(false);
 
   return (
     <tr className="w-full py-4 bg-blue-gray-50 border-b border-white">
       <td className="text-gray-800 px-4 py-2">
-        <Tooltip content={data?.title}>{data?.title.slice(0, 28)}</Tooltip>
+        <Typography variant="small" color="blue-gray" className="font-normal">
+          {data?.bank}
+        </Typography>
       </td>
+
       <td className="text-white px-4 py-2">
         <Typography variant="small" color="blue-gray" className="font-normal">
-          <Tooltip content={data?.message}>
-            {data?.message.slice(0, 50)}
-          </Tooltip>
+          {data?.branch}
         </Typography>
       </td>
       <td className="text-white px-4 py-2">
         <Typography variant="small" color="blue-gray" className="font-normal">
-          <Chip className="w-fit" value={data?.type} variant="ghost" />
+          {data?.amount}
         </Typography>
       </td>
       <td className="text-white px-4 py-2">
         <Typography variant="small" color="blue-gray" className="font-normal">
-          {new Date(data?.createAt).toLocaleDateString("en-GB")}
+          <Chip
+            className="w-fit"
+            value={data?.approved ? "Approved" : "Pending"}
+            variant="ghost"
+            color={data?.approved ? "green" : "pink"}
+          />
         </Typography>
       </td>
       <td className="text-white px-4 py-2">
-        <Link
-          to={
-            (data?.type === "order" && "/dashboard/orders") ||
-            (data?.type === "product" && `/products/${data?.activityId}`) ||
-            (data?.type === "review" && `/products`) ||
-            (data?.type === "user" && `/dashboard/my-account`)
-          }
-        >
+        <Typography variant="small" color="blue-gray" className="font-normal">
+          {moment(data.createdAt).format("YYYY-MM-DD HH:mm:ss")}
+        </Typography>
+      </td>
+      <td className="text-white px-4 py-2">
+        <div>
           <IconButton>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +74,7 @@ export default function HistoryTableRow({ data }) {
               />
             </svg>
           </IconButton>
-        </Link>
+        </div>
       </td>
       <Dialog open={open} handler={() => setOpen(false)}>
         <DialogHeader>

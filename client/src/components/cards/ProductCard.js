@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Rating, Typography } from "@material-tailwind/react";
+import { Button, Chip, Rating, Typography } from "@material-tailwind/react";
 import ProductImageCorousel from "./ProductImageCarousel";
 import ranking from "../../assets/icons/ranking.png";
 
@@ -17,12 +17,9 @@ const ProductCard = ({ product, status }) => {
           )}
           <ProductImageCorousel images={product?.images} />
         </div>
-        <Link
-          to={`/products/${product?._id}`}
-          className="grid grid-cols-1 md:gap-2 p-3"
-        >
+        <div className="grid grid-cols-1 md:gap-2 p-3 cursor-pointer">
           <h1 className="flex-grow font-bold text-gray-800 md:text-[18px]">
-            {product?.title.slice(0, 50)}
+            {product?.title?.slice(0, 50)}
           </h1>
           <div className="flex items-center gap-1">
             <Rating className="" value={product?.rating} readonly />
@@ -31,23 +28,30 @@ const ProductCard = ({ product, status }) => {
             </Typography>
           </div>
           <div className="flex flex-col gap-1 text-sm overflow-hidden hidden md:block">
-            {product?.type === "Package" ? (
-              <>
-                {product?.features.map((feature, i) => (
-                  <li>{feature}</li>
-                ))}
-              </>
-            ) : (
-              <Typography>{product?.description.slice(0, 20)}</Typography>
-            )}
+            <spam>{product?.smallDescription?.slice(0, 100)}</spam>
           </div>
-        </Link>
+        </div>
       </div>
 
       <div className="flex items-center justify-between p-2">
-        <h1 className="text-gray-800 md:text-2xl font-bold text-left">
-          ₹ {product?.price}
-        </h1>
+        <div className="flex items-center gap-2">
+          <h1 className="text-gray-800 md:text-2xl font-bold text-left">
+            ₹ {product?.price}
+          </h1>
+          {product?.discount > 0 && (
+            <>
+              <Chip
+                variant="ghost"
+                color="red"
+                size="sm"
+                value={`SAVE ${product?.discount}%`}
+              />
+              <span className="text-sm line-through text-gray-500">
+                ₹{product?.originalPrice}
+              </span>
+            </>
+          )}
+        </div>
 
         <Link to={`/products/${product?._id}`}>
           <Button className="md:py-2 rounded-sm text-[10px] py-1">

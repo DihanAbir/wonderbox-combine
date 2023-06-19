@@ -74,7 +74,7 @@ const Navber = () => {
             Home
           </Link>
         </div>
-        {user?._id && (
+        {/* {user?._id && (
           <div className="hidden lg:block">
             <Link
               to="/dashboard"
@@ -83,7 +83,7 @@ const Navber = () => {
               Dashboard
             </Link>
           </div>
-        )}
+        )} */}
         <div className="hidden lg:block">
           <Link
             to="/about-us"

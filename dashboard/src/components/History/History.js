@@ -1,13 +1,14 @@
-<<<<<<< HEAD
 import { Fragment, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
-import { Breadcrumb, Card, Container } from "reactstrap";
+import { Alert, Breadcrumb, Card, Collapse, Container } from "reactstrap";
 function History() {
   const [histories, setHistories] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
+
+  const [open, setOpen] = useState(false);
 
   const fetchHistories = async () => {
     try {
@@ -39,13 +40,6 @@ function History() {
       setPage(page + 1);
     }
   };
-=======
-import { Fragment } from "react";
-import Table from "react-bootstrap/Table";
-import { Breadcrumb, Card, Container } from "reactstrap";
-
-function History() {
->>>>>>> 09bd19e24d8de1852c38f629860fc6dfaad5d531
   return (
     <Fragment>
       <Breadcrumb title="Hisoty" parent="History" />
@@ -55,7 +49,6 @@ function History() {
             <thead className="bg-info">
               <tr>
                 <th>#</th>
-<<<<<<< HEAD
                 <th>Title</th>
                 <th>Message</th>
                 <th>Type</th>
@@ -113,34 +106,6 @@ function History() {
               Next
             </Button>
           </div>
-=======
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <th key={index}>Table heading</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <td key={index}>Table cell {index}</td>
-                ))}
-              </tr>
-              <tr>
-                <td>2</td>
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <td key={index}>Table cell {index}</td>
-                ))}
-              </tr>
-              <tr>
-                <td>3</td>
-                {Array.from({ length: 6 }).map((_, index) => (
-                  <td key={index}>Table cell {index}</td>
-                ))}
-              </tr>
-            </tbody>
-          </Table>
->>>>>>> 09bd19e24d8de1852c38f629860fc6dfaad5d531
         </Card>
       </Container>
     </Fragment>
