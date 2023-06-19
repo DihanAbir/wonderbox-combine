@@ -1,15 +1,12 @@
 const express = require("express");
 const app = express();
-const cors = require("cors")
-
+const cors = require("cors");
 
 // middleware
 app.use(cors());
-app.use(express.json())
+app.use(express.json());
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
 
 // require routes
 const userRoutes = require("./modules/user/userRoutes");
@@ -22,7 +19,9 @@ const reviewRoutes = require("./modules/review/reviewRoutes");
 const addressRoutes = require("./modules/address/addressRoutes");
 const notificationRoutes = require("./modules/notification/notificationRoutes");
 const historyRoutes = require("./modules/history/historyRoutes");
-
+const wishlistRoute = require("./modules/wishlist/wishlistRoute");
+const addCartRoute = require("./modules/addCart/addCartRoute");
+const categoryRoute = require("./modules/category/categoryRoute");
 
 // api routes
 app.use("/api/user", userRoutes);
@@ -34,26 +33,18 @@ app.use("/api/review", reviewRoutes);
 app.use("/api/address", addressRoutes);
 app.use("/api/notification", notificationRoutes);
 app.use("/api/history", historyRoutes);
-
-
-
+app.use("/api/wishlist", wishlistRoute);
+app.use("/api/addcart", addCartRoute);
+app.use("/api/category", categoryRoute);
 
 app.use((err, req, res, next) => {
-    if (res.headersSent) return next(err);
-    res.status(400).json({ message: err.message });
+  if (res.headersSent) return next(err);
+  res.status(400).json({ message: err.message });
 });
-
 
 app.get("/", (req, res) => {
-    res.send("App works properly!");
+  res.send("App works properly!");
 });
 
-
-
 // app export
-module.exports = app
-
-
-
-
-
+module.exports = app;

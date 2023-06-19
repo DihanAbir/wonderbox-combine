@@ -10,20 +10,22 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
-        primary: '#0029FF',
-        secondary: '#F5F5F5',
-        darkPrimary: '#0624c2'
+        primary: "#0029FF",
+        secondary: "#F5F5F5",
+        darkPrimary: "#0624c2",
       },
       maxWidth: {
-        'primary': '1480px',
-      }
+        primary: "1480px",
+      },
     },
+    // fontFamily: {
+    //   sans: ["Poppins"],
+    // },
   },
   variants: {
     extend: {
-      display: ['group-focus', 'group-hover']
+      display: ["group-focus", "group-hover"],
     },
   },
-  plugins: []
-})
-
+  plugins: [],
+});
