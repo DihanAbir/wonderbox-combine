@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/no-distracting-elements */
 import React from "react";
 import FooterInbox from "../../components/HomeComponents/FooterInbox/FooterInbox";
 import ProductRequirements from "../../components/HomeComponents/ProductRequirements/ProductRequirements";
-import Product from "../Product/Product";
 import VerifiedStores from "../../components/HomeComponents/VerifiedStores/VerifiedStores";
 import Banner from "../../components/HomeComponents/Banner/Banner";
 import LatestProducts from "../../components/HomeComponents/LatestProducts/LatestProducts";
@@ -12,7 +10,7 @@ import About from "../About/About";
 
 const Home = () => {
   return (
-    <section className="bg-white">
+    <section className="bg-[#fafcfd]">
       <div className="max-w-primary mx-auto px-4 pt-4">
         <Banner />
         <LatestProducts />

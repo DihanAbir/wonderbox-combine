@@ -1,9 +1,7 @@
 import {
   Typography,
   Chip,
-  Avatar,
   IconButton,
-  Tooltip,
   Button,
   Dialog,
   DialogHeader,
@@ -13,7 +11,6 @@ import {
 import moment from "moment";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function DepositTableRow({ data }) {
   const [open, setOpen] = useState(false);

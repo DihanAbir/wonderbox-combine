@@ -5,9 +5,7 @@ export const routes = [
     url: "dashboard/my-account",
     img: (
       <svg
-        className="w-5 h-5"
-        width=""
-        height="0"
+        className="w-full h-full"
         viewBox="0 0 33 34"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,9 +23,7 @@ export const routes = [
     url: "dashboard/shopping-address",
     img: (
       <svg
-        className="w-5 h-5"
-        width=""
-        height="0"
+        className="w-full h-full"
         viewBox="0 0 33 34"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
@@ -45,9 +41,7 @@ export const routes = [
     url: "dashboard/orders",
     img: (
       <svg
-        className="w-5 h-5"
-        width=""
-        height="0"
+        className="w-full h-full"
         viewBox="0 0 33 36"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +78,7 @@ export const routes = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-6 h-6"
+        className="w-full h-full"
       >
         <path
           stroke-linecap="round"
@@ -105,7 +99,7 @@ export const routes = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-6 h-6"
+        className="w-full h-full"
       >
         <path
           stroke-linecap="round"
@@ -126,7 +120,7 @@ export const routes = [
         viewBox="0 0 24 24"
         stroke-width="1.5"
         stroke="currentColor"
-        class="w-6 h-6"
+        className="w-full h-full"
       >
         <path
           stroke-linecap="round"
@@ -142,9 +136,7 @@ export const routes = [
     url: "dashboard/history",
     img: (
       <svg
-        className="w-5 h-5"
-        width=""
-        height="0"
+        className="w-full h-full"
         viewBox="0 0 35 35"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
